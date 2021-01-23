@@ -1,0 +1,642 @@
+$--basic-black: #000000
+$--basic-dark: #242424
+$--basic-grey: #1a1a1a
+$--ultra-grey: #aba9a7
+$--normal-white: #f9f6f3
+$--extra-white: #ffffff
+
+$--special: #663d15
+
+.visually-hidden
+  position: absolute
+  clip: rect(0 0 0 0)
+  width: 1px
+  height: 1px
+  margin: -1px
+
+//настройка бади
+body
+  min-width: 960px
+  margin: 0
+
+  padding: 0
+
+  font-family: "PT Sans Narrow", Arial, sans-serif
+
+  font-size: 14px
+  line-height: 24px
+  font-weight: 700
+  color: $--extra-white
+  text-transform: uppercase
+  background-color: $--basic-black
+  background-image: url("images/png/background.png")
+  background-position: top center
+  background-repeat: no-repeat
+
+  a
+    text-decoration: none
+
+  img
+    max-width: 100%
+    height: auto
+
+  .page
+    height: 100%
+
+  .page-body
+    min-height: 100%
+    display: grid
+    grid-template-rows: min-content 1fr min-content
+    align-content: start
+
+//шапка
+.main-header
+  margin-bottom: 70px
+
+  .main-navigation
+    display: flex
+    flex-direction: column
+    align-items: center
+    font-size: 16px
+    line-height: 20px
+    color: $--extra-white
+    background-color: transparent
+
+    .main-header-logo
+      width: 371px
+      order: 2
+
+    .main-navigation-wrapper
+      width: 100%
+      margin: 0
+      padding: 0
+      margin-bottom: 60px
+      background-color: $--basic-black
+
+      a:not([href])
+        background-color: $--basic-black
+
+      .main-container
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        width: 940px
+        margin: 0 auto
+        padding: 0 10px
+
+        .user-navigation
+          .login-link
+            padding-left: 50px
+            position: relative
+
+            &:before
+              content: ''
+              position: absolute
+              top: 27px
+              left: 24px
+              width: 16px
+              height: 18px
+              background-image: url("images/images_catalog/jpg/log in white.svg")
+              background-repeat: no-repeat
+              background-position: 0 0
+              opacity: 0.3
+
+            &:hover::before,
+            &:focus::before,
+            &:active::before
+              opacity: 1
+
+          max-width: 140px
+
+          a
+            color: $--extra-white
+            display: block
+            padding: 25px 20px
+
+          & a:hover,
+          & a:focus
+            background-color: $--basic-dark
+
+        .site-navigation
+          display: flex
+          flex-wrap: nowrap
+          list-style: none
+          width: 620px
+          margin: 0
+          padding: 0
+          min-height: 72px
+
+          a
+            color: $--extra-white
+            display: block
+            padding: 25px 20px
+
+          & a:hover,
+          & a:focus
+            background-color: $--basic-dark
+
+//все элементы на страние
+.container
+  width: 940px
+  margin: 0 auto
+  padding: 0 10px
+
+
+.features
+  margin-bottom: 70px
+
+  .features-list
+
+
+    list-style: none
+    margin: 0
+    padding: 0
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    column-gap: 20px
+
+  .features-item
+
+    text-align: center
+
+  .features-item p
+    margin: 0 10px
+    color: $--extra-white
+
+  .features-item h3
+    font-size: 30px
+    line-height: 42px
+    color: $--extra-white
+    margin-bottom: 60px
+    position: relative
+
+    &::after
+      content: ""
+      position: absolute
+      bottom: -30px
+      left: 50%
+      width: 20px
+      height: 20px
+      margin-left: -10px
+      background-color: $--extra-white
+      transform: rotate(45deg)
+
+
+.index-columns
+  display: flex
+  justify-content: space-between
+  margin-bottom: 35px
+  padding: 50px 80px
+  color: $--basic-black
+  background-color: $--extra-white
+  background-image: url("images/images_catalog/jpg/shape.png"), url("images/images_catalog/jpg/white background.jpg")
+  background-position: center, 0 0
+  background-repeat: no-repeat, repeat
+
+
+  h2
+    margin: 0
+    margin-bottom: 25px
+    font-size: 30px
+    line-height: 42px
+
+  .news
+    width: 380px
+
+  .news-item
+    margin-bottom: 25px
+
+    p
+      margin: 0
+
+  .news-list
+    margin: 0
+    margin-bottom: 25px
+    padding: 0
+    list-style: none
+
+
+.gallery
+  width: 300px
+
+  .gallery-container
+    height: 260px
+
+  position: relative
+
+  .gallerey-button
+    position: absolute
+    bottom: 0
+    box-sizing: border-box
+    width: 140px
+    margin: 0
+
+  .gallerey-button-back
+    left: 0
+
+  .gallerey-button-next
+    right: 0
+
+  .gallery-content
+    height: 164px
+    margin: 0
+    background-color: $--ultra-grey
+    border: 7px solid $--extra-white
+
+    img
+      width: 286px
+      height: 164px
+
+
+.contacts
+  position: relative
+  width: 321px
+  height: 294px
+  margin: 0
+  padding: 0
+
+  p
+    margin: 0
+    margin-bottom: 25px
+
+  .contacts-button
+    position: absolute
+    bottom: 0
+    box-sizing: border-box
+    width: 140px
+    padding: 10px
+    margin: 0
+
+  .contacts-button-map
+    left: 0
+
+  .contacts-button-feedback
+
+    right: 21px
+
+
+.appointment
+  width: 300px
+
+  .button
+    display: block
+    width: 100%
+    margin-top: 10px
+    margin-right: 0
+
+  .appointment-info
+    margin: 0
+    margin-bottom: 15px
+
+  .appointment-item
+    font: inherit
+    margin-top: 0
+    margin-bottom: 10px
+    width: 140px
+
+    & label
+      display: block
+      margin-bottom: 9px
+      margin-left: 15px
+
+    & input
+      box-sizing: border-box
+      font: inherit
+      width: 140px
+      padding-top: 8px
+      padding-right: 15px
+      padding-bottom: 7px
+      padding-left: 15px
+      background-color: transparent
+      border: 2px solid $--basic-black
+
+    & input:focus
+      border-color: $--special
+  //обводка поля//
+
+  .appointment-form
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+
+//button Тут мы будем настраивать кнопки, все кнопки настраиваются один раз на весь сайт
+.button
+  display: inline-block
+  //что бы кнопки стояли рядышком
+  margin-right: 16px
+  font: inherit
+  padding: 10px 30px
+  text-align: center
+  //центрируем текст на кнопках
+  color: $--extra-white
+  text-transform: uppercase
+  //все пишется прописными буквами
+  vertical-align: middle
+  //Выравнивает элемент по вертикали относительно своего родителя, окружающего текста или ячейки таблицы.
+  background-color: $--basic-black
+  border: none
+  //обводка по умолчанию у тега баттон есть
+  &:active,
+  &:hover,
+  &:focus
+    background-color: $--special
+  //при ховере фокусе и активе цвет кнопки-коричневый
+
+  &.disabled,
+  &:disabled
+    cursor: default
+    opacity: 0.5
+    //полупрозрачная
+    background-color: $--basic-black
+
+//footer
+
+.main-footer
+  padding: 59px
+  margin-top: 65px
+  color: $--extra-white
+  background-color: var(--basic-black)
+  background-image: url("images/images_catalog/jpg/black background.jpg")
+  background-position: 0 0
+  background-repeat: repeat
+
+  .container
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+
+    .footer-contacts
+      margin: 0
+      width: 373px
+
+      p
+        margin: 0
+
+      a
+        color: $--extra-white
+        text-decoration: underline
+
+      &a:hover,
+      &a:focus
+        text-decoration: none
+
+    .footer-social
+
+      display: flex
+      justify-content: center
+      flex-wrap: wrap
+      width: 141px
+      justify-self: center
+      text-align: center
+
+      ul
+        margin: 0 auto
+        padding: 0
+        list-style: none
+
+      h2
+        font-size: 14px
+
+      .social-button
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-right: 6px
+        width: 43px
+        height: 43px
+        color: inherit
+        background-color: $--basic-black
+
+        &:hover,
+        &:focus
+          background-color: $--extra-white
+
+        &:hover path,
+        &:focus path
+          fill: $--basic-black
+
+      .social-button-list
+        display: flex
+
+
+    .footer-copyright
+      justify-self: end
+      display: block
+      width: 140px
+
+      & .button:hover,
+      & .button:focus
+        color: $--basic-black
+        background-color: $--extra-white
+
+      & p
+        margin-bottom: 12px
+        margin-left: 51px
+
+      .button-copyright
+        width: 100%
+        margin: 0
+
+//modal
+.modal
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+  color: $--basic-black
+  background-color: $--extra-white
+  background-image: url("images/images_catalog/jpg/white background.jpg")
+  background-position: 0 0
+  background-repeat: repeat
+
+  .modal h2
+    margin: 0
+    margin-bottom: 15px
+    font-size: 30px
+    line-height: 42px
+
+  .login-form p
+    margin: 0
+    margin-bottom: 10px
+
+  .login-form .login-help
+    margin: 0
+    margin-bottom: 15px
+
+  .modal a
+    color: $--basic-black
+    text-decoration: underline
+
+  .login-form input[type="email"],
+  .login-form input[type="password"]
+    box-sizing: border-box
+    width: 300px
+    padding-top: 10px
+    padding-right: 40px
+    padding-bottom: 9px
+    padding-left: 17px
+    font: inherit
+    color: $--basic-black
+    background-color: transparent
+    text-transform: uppercase
+    border: 2px solid $--basic-black
+
+    .login-form input:focus
+      border-color: $--special
+
+
+    .restore
+      color: $--basic-black
+      text-decoration: underline
+
+    .restore:hover,
+    .restore:focus
+      text-decoration: none
+
+//modal login
+.modal-login
+  display: none
+  top: 120px
+  bottom: auto
+  width: 460px
+  padding-top: 46px
+  padding-bottom: 58px
+  .modal-close
+    position: absolute
+    top: 0
+    right: -34px
+    width: 22px
+    height: 22px
+    background-color: transparent
+    border: 0
+    cursor: pointer
+
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      top: 10px
+      left: 2px
+      width: 19px
+      height: 3px
+      background-color: $--ultra-grey
+
+    &::before
+      transform: rotate(45deg)
+
+    &::after
+      transform: rotate(-45deg)
+
+  & h2
+    padding-left: 80px
+
+  .text-modal-login
+    padding-left: 80px
+
+
+  .login-form
+
+    padding: 0
+    margin: 0
+    padding-left: 80px
+    padding-right: 80px
+
+
+    .account-icon
+      position: absolute
+      top: 160px
+      left: 352px
+
+    .password-icon
+      position: absolute
+      left: 352px
+      top: 215px
+
+
+    .login-help
+      width: 300px
+      display: flex
+      justify-content: space-between
+      flex-wrap: wrap
+      padding-right: 0
+
+
+      .button-login
+        width: 100%
+
+        margin: 0
+        margin-top: 14px
+
+      .restore
+        color: inherit
+        text-decoration: underline
+
+      .login-checkbox
+        padding-left: 32px
+        display: block
+        cursor: pointer
+        user-select: none
+
+        .checkbox-indicator:before
+          position: absolute
+          content: ''
+          left: 80px
+          width: 20px
+          height: 20px
+          border: 2px solid #000000
+
+
+//modal map
+.modal-map
+  display: none
+  .modal-close
+    position: absolute
+    top: 0
+    right: -34px
+    width: 22px
+    height: 22px
+    background-color: transparent
+    border: 0
+    cursor: pointer
+
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      top: 10px
+      left: 2px
+      width: 19px
+      height: 3px
+      background-color: $--ultra-grey
+
+    &::before
+      transform: rotate(45deg)
+
+    &::after
+      transform: rotate(-45deg)
+
+  width: 766px
+  height: 560px
+  & iframe
+    border: none
+
+
+
+//scripts
+.modal-show
+  display: block
+
+
+
+
+
+
+
+
+
+
+
+

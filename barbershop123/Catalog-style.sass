@@ -1,0 +1,844 @@
+$--basic-black: #000000
+$--basic-dark: #242424
+$--basic-grey: #1a1a1a
+$--ultra-grey: #aba9a7
+$--normal-white: #f9f6f3
+$--extra-white: #ffffff
+$--botton-grey: #e5e5e5
+
+$--special: #663d15
+
+.visually-hidden
+  position: absolute
+  clip: rect(0 0 0 0)
+  width: 1px
+  height: 1px
+  margin: -1px
+
+html
+  height: 100%
+body
+  min-width: 960px
+  /*минимальная ширина. Внимание, в макете барбершопа размер боди, помнишь, там где новости и фотогалерея, там от начала элемента до конца-940. +10 на всякий случай с двух сторон*/
+  margin: 0
+  /*Устанавливает величину отступа от каждого края элемента. Отступом является пространство от границы текущего элемента до внутренней границы его родительского элемента
+     Свойство margin задаёт отступ между границами блока и его родителем и соседями.*/
+  padding: 0
+  /*станавливает значение полей вокруг содержимого элемента. Полем называется расстояние от внутреннего края рамки элемента до воображаемого прямоугольника, ограничивающего его содержимое
+     Свойство padding задаёт отступ от границы блока до содержимого, ещё эти отступы называют «полями». */
+  font-family: "PT Sans Narrow", Arial, sans-serif
+  /*указываем шрифт для всего глубже <body>, если у какого то элемента
+       в макете другой шрифт, то там уже лично прописывать элементу шрифт (по правилу каскада)*/
+  font-size: 14px
+  /*стили по умолчанию, размер шрифта-14 пикселей (можно глянуть в макете*/
+  line-height: 24px
+  /*межстрочный интервал, тоже смотрится в макете*/
+  font-weight: 700
+  /*шрифт по умолчанию, в данный момент полужирный 700, смотри макет*/
+  color: $--extra-white
+  /*шрифт по умолчанию, я поставил белый, екстра вайт смотри root*/
+  text-transform: uppercase
+  /*апперкейс означает, что все нахуярено капсом*/
+  background-color: $--basic-black
+  /*ну тут понятно, бекграунд черный, что бы видно было текст?всегда указываем фон, что бы если какая то картинка не загрузилась, было видно текст*/
+  background-image: url("images/images_catalog/jpg/white background.jpg")
+  /*добавляем картинку на бекграунд*/
+  background-position: top center
+  /*центрируем ее*/
+  background-repeat: repeat
+  /*тоже центрируем, видимо что бы она не повторялась*/
+  height: 100%
+  display: flex
+  flex-direction: column
+
+
+  & a
+    text-decoration: none
+
+  & img
+    max-width: 100%
+    /*не даем картинкам быть больше, чем их контейнер*/
+    height: auto
+
+  .page
+    height: 100%
+
+  .page-body
+    min-height: 100%
+    display: grid
+    grid-template-rows: min-content 1fr min-content
+    align-content: start
+
+
+//шапка
+.main-header
+  .main-navigation-wrapper
+    width: 100%
+    /* ширину добавили после флексов, что бы черная хуйня на всю длину растянулась*/
+    background-color: $--basic-black
+    /*вот как раз без логотипа весю шапку залили черным*/
+    .main-navigation
+      font-size: 16px
+      /*у нас в шапке другой размер шрифтов*/
+      line-height: 20px
+      /*у нас в шапке другой размер шрифтов*/
+      color: $--extra-white
+      /*я не могу понять, за что эта срань отвечает, но меняет цвет li шки, точки возле пунктов*/
+      background-color: transparent
+      /*фон у нас прозрачный, потом будем пытаться его сделать черным, хз почему не ща. Я понял. в мейн навигейшене есть логотип, нам нельзя под ним фон черный делать*/
+      display: flex
+      align-items: center
+      justify-content: center
+
+
+
+
+
+
+  .container
+    width: 940px
+    margin: 0 auto
+    padding: 0 10px
+
+
+  .site-navigation
+    display: flex
+    width: 620px
+    margin: 0
+    padding: 0
+    min-height: 72px
+    list-style: none
+    /* делаем тоже самое со всеми элементами хедера */
+    justify-content: space-between
+    align-items: center
+
+    a
+      color: $--extra-white
+      display: block
+      padding: 26px 22px
+
+
+
+    a:hover,
+    a:focus
+      background-color: $--basic-dark
+
+  .shop-underline //белое подчеркивание
+    position: relative
+    &::after
+      content: ''
+      position: absolute
+      top: 68px
+      left: 22px
+      width: 57px
+      height: 4px
+      background-color: white
+    &:hover::after,
+    &:focus::after,
+    &:active::after
+      opacity: 0
+  /*logo*/
+
+  .main-header-logo
+    padding: 0
+    margin: 0
+    margin-right: 40px
+    width: 111px
+    height: 24px
+
+
+  a
+    color: $--extra-white
+
+  .user-navigation
+    margin-left: 182px
+    .login-link
+      padding-left: 50px
+      position: relative
+
+      &:before
+        content: ''
+        position: absolute
+        top: 27px
+        left: 24px
+        width: 16px
+        height: 18px
+        background-image: url("images/images_catalog/jpg/log in white.svg")
+        background-repeat: no-repeat
+        background-position: 0 0
+        opacity: 0.3
+
+      &:hover::before,
+      &:focus::before,
+      &:active::before
+        opacity: 1
+
+    max-width: 140px
+
+    a
+      color: $--extra-white
+      display: block
+      padding: 25px 20px
+
+    & a:hover,
+    & a:focus
+      background-color: $--basic-dark
+
+
+
+
+//все основное
+.container_catalog
+  width: 940px
+  margin: 0 auto
+  padding: 0 10px
+  color: $--basic-black
+  background-color: $--extra-white
+  background-image: url("images/images_catalog/jpg/white background.jpg")
+  background-position: center, 0 0
+  background-repeat: repeat
+  flex: 1 0 auto
+
+
+  .care-products
+    width: 295px
+    margin: 0
+    margin-top: 61px
+    h2
+      margin: 0
+      font-size: 30px
+      line-height: 42px
+
+    .care-products-list
+      list-style: none
+      padding: 0
+      margin: 0
+      margin-top: 15px
+      width: 295px
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      flex-wrap: nowrap
+
+      .care-products-li
+        color: #ABA9A7
+
+      .button-care-product-list
+        font: inherit
+        color: var(--basic-black)
+        position: relative
+        &::after
+          content: ""
+          position: absolute
+          right: -23px
+          bottom: 6px
+          width: 7px
+          height: 7px
+          background-color: black
+          transform: rotate(45deg)
+
+  .product-catalog
+    width: 940px
+    margin: 0
+    padding: 0
+    margin-top: 49px
+    display: flex
+    justify-content: space-between
+
+
+    .product-catalog-product-filter
+      margin: 0
+      margin-top: 10px
+      max-width: 167px
+      display: flex
+      justify-content: flex-start
+
+
+      .product-catalog-product-filter-product-group
+        color: $--basic-black
+        margin: 0
+        padding: 0
+        margin-top: 50px
+        list-style: none
+        border: none
+        legend
+          font-size: 24px
+
+
+        .product_group
+          margin: 0
+          padding: 0
+          margin-top: 28px
+          height: 110px
+          list-style: none
+          color: $--basic-black
+          display: flex
+          flex-direction: column
+          justify-content: space-between
+          .filter-option
+            padding-left: 45px
+            & label
+              position: relative
+              display: block
+              cursor: pointer
+              user-select: none
+            .filter-input-radio
+              &:hover + label,
+              &:focus + label
+                color: $--special
+              & + label::before
+                content: ''
+                position: absolute
+                left: -42px
+                top: 0
+                width: 16px
+                height: 16px
+                border: 2px solid black
+                border-radius: 50%
+              &:checked + label::after
+                content: ''
+                position: absolute
+                top: 6px
+                left: -36px
+                width: 8px
+                height: 8px
+                background-color: black
+                border-radius: 50%
+
+      .product-catalog-product-filter-manufacturers
+        color: $--basic-black
+        max-width: 167px
+        margin: 0
+        padding: 0
+        border: none
+        legend
+          font-size: 24px
+
+        .product-filter-list
+          height: 203px
+          list-style: none
+          padding: 0
+          margin: 0
+          margin-top: 28px
+          display: flex
+          justify-content: space-around
+          align-items: flex-start
+          flex-direction: column
+          .filter-option
+            padding-left: 45px
+            & label
+              position: relative
+              display: block
+              cursor: pointer
+              user-select: none
+          .filter-input-checkbox
+            &:hover + label,
+            &:focus + label
+              color: $--special
+            & + label::before
+              content: ''
+              position: absolute
+              left: -42px
+              top: 0
+              width: 16px
+              height: 16px
+              border: 2px solid black
+            &:checked + label::after
+              content: ''
+              position: absolute
+              top: 4px
+              left: -38px
+              width: 12px
+              height: 12px
+              background-image: url("images/images_catalog/jpg/cross.svg")
+
+      .button-submit
+        margin: 0
+        margin-top: 50px
+        width: 112px
+        height: 43px
+
+    .product-catalog-catalog_list
+
+      width: 700px
+
+      .shop_list
+        list-style: none
+        padding: 20px
+        display: grid
+        grid-template-rows: 1fr 1fr
+        grid-template-columns: 1fr 1fr 1fr
+        grid-column-gap: 20px
+        grid-row-gap: 20px
+
+        h3
+          color: $--basic-black
+
+        .catalog_list_background_product
+          background-color: $--extra-white
+          margin: 0
+          padding: 0
+          width: 220px
+
+
+          .white-table-shop-list
+            margin: 0
+            padding: 0
+            margin-left: 16px
+            margin-bottom: 12px
+            text-align: start
+
+          .buttons-shop-list
+            margin: 0
+            padding: 0
+            margin-left: 16px
+            margin-right: 17px
+            padding-bottom: 16px
+            display: grid
+            grid-template-columns: 1fr 1fr
+
+            .grey-background-price
+              background-color: $--botton-grey
+              margin: 0
+              padding: 0
+              width: 109px
+              height: 43px
+              display: flex
+              justify-content: center
+              align-items: center
+
+
+  .page-list
+    margin-left: 219px
+    list-style: none
+    width: 250px
+    display: flex
+    justify-content: space-between
+
+
+    .button
+      padding: 0
+      margin: 0
+      padding: 20px
+      padding-left: 25px
+      padding-right: 25px
+    .button-target-list
+      background-color: $--extra-white
+      color: $--basic-dark
+
+
+
+
+//bottons
+.button
+  text-align: center
+  font: inherit
+  color: $--extra-white
+  text-transform: uppercase
+  /*все пишется прописными буквами*/
+  vertical-align: middle
+  /*Выравнивает элемент по вертикали относительно своего родителя, окружающего текста или ячейки таблицы.*/
+  background-color: $--basic-black
+  border: none
+  &:active,
+  &:hover,
+  &:focus
+    background-color: $--special
+
+  .disabled
+    cursor: default
+    opacity: 0.5
+    /*полупрозрачная*/
+    background-color: $--basic-black
+
+
+//Footer
+.main-footer
+  padding: 59px
+  margin-top: 65px
+  color: $--extra-white
+  background-color: var(--basic-black)
+  background-image: url("images/images_catalog/jpg/black background.jpg")
+  background-position: 0 0
+  background-repeat: repeat
+  flex-shrink: 0
+
+
+  .container
+    width: 940px
+    margin: 0 auto
+    padding: 0 10px
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+
+    .footer-contacts
+      margin: 0
+      width: 373px
+
+      p
+        margin: 0
+
+      a
+        color: $--extra-white
+        text-decoration: underline
+
+      &a:hover,
+      &a:focus
+        text-decoration: none
+
+    .footer-social
+
+      display: flex
+      justify-content: center
+      flex-wrap: wrap
+      width: 141px
+      justify-self: center
+      text-align: center
+
+      ul
+        margin: 0 auto
+        padding: 0
+        list-style: none
+
+      h2
+        font-size: 14px
+
+      .social-button
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-right: 6px
+        width: 43px
+        height: 43px
+        color: inherit
+        background-color: $--basic-black
+
+        &:hover,
+        &:focus
+          background-color: $--extra-white
+
+        &:hover path,
+        &:focus path
+          fill: $--basic-black
+
+      .social-button-list
+        display: flex
+
+
+    .footer-copyright
+      justify-self: end
+      display: block
+      width: 140px
+
+      & .button:hover,
+      & .button:focus
+        color: $--basic-black
+        background-color: $--extra-white
+
+      & p
+        margin-bottom: 12px
+        margin-left: 51px
+
+      .button-copyright
+        display: inline-block
+        width: 100%
+        margin: 0
+        padding: 10px 30px
+
+
+//modal
+.modal
+  color: $--basic-black
+  background-color: $--extra-white
+  background-image: url("images/images_catalog/jpg/white background.jpg")
+  background-position: 0 0
+  background-repeat: repeat
+
+  .modal h2
+    margin: 0
+    margin-bottom: 15px
+    font-size: 30px
+    line-height: 42px
+
+  .login-form p
+    margin: 0
+    margin-bottom: 10px
+
+  .login-form .login-help
+    margin: 0
+    margin-bottom: 15px
+
+  .modal a
+    color: $--basic-black
+    text-decoration: underline
+//login form
+.login-form input[type="email"],
+.login-form input[type="password"]
+  font: inherit
+  /*отнаследуйся*/
+  color: $--basic-black
+  background-color: transparent
+  /*фон прозрачный*/
+  text-transform: uppercase
+  /*в логин форме все капсом*/
+  border: 2px solid $--basic-black
+
+
+
+
+
+
+
+
+
+
+
+
+  .login-form input:focus
+    border-color: $--special
+
+
+
+
+
+
+
+
+
+
+
+
+  .login-icon-user
+    background-image: url("images/images_catalog/jpg/account.svg")
+    background-position: 270px center
+    background-repeat: no-repeat
+
+  .login-icon-password
+    background-image: url("images/images_catalog/jpg/lock.svg")
+    background-position: 270px center
+    background-repeat: no-repeat
+  /*restore*/
+
+
+
+
+
+
+
+
+
+
+
+  .restore
+    color: $--basic-black
+    text-decoration: underline
+
+  .restore:hover,
+  .restore:focus
+    text-decoration: none
+
+
+
+
+
+
+.modal
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+  color: $--basic-black
+  background-color: $--extra-white
+  background-image: url("images/images_catalog/jpg/white background.jpg")
+  background-position: 0 0
+  background-repeat: repeat
+
+  .modal h2
+    margin: 0
+    margin-bottom: 15px
+    font-size: 30px
+    line-height: 42px
+
+  .login-form p
+    margin: 0
+    margin-bottom: 10px
+
+  .login-form .login-help
+    margin: 0
+    margin-bottom: 15px
+
+  .modal a
+    color: $--basic-black
+    text-decoration: underline
+
+  .login-form input[type="email"],
+  .login-form input[type="password"]
+    box-sizing: border-box
+    width: 300px
+    padding-top: 10px
+    padding-right: 40px
+    padding-bottom: 9px
+    padding-left: 17px
+    font: inherit
+    color: $--basic-black
+    background-color: transparent
+    text-transform: uppercase
+    border: 2px solid $--basic-black
+
+    .login-form input:focus
+      border-color: $--special
+
+
+    .restore
+      color: $--basic-black
+      text-decoration: underline
+
+    .restore:hover,
+    .restore:focus
+      text-decoration: none
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//modal login
+.modal-login
+  display: none
+  top: 120px
+  bottom: auto
+  width: 460px
+  padding-top: 46px
+  padding-bottom: 58px
+  .modal-close
+    position: absolute
+    top: 0
+    right: -34px
+    width: 22px
+    height: 22px
+    background-color: transparent
+    border: 0
+    cursor: pointer
+
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      top: 10px
+      left: 2px
+      width: 19px
+      height: 3px
+      background-color: $--ultra-grey
+
+    &::before
+      transform: rotate(45deg)
+
+    &::after
+      transform: rotate(-45deg)
+
+  & h2
+    padding-left: 80px
+
+  .text-modal-login
+    padding-left: 80px
+
+
+  .login-form
+
+    padding: 0
+    margin: 0
+    padding-left: 80px
+    padding-right: 80px
+
+
+    .account-icon
+      position: absolute
+      top: 160px
+      left: 352px
+
+    .password-icon
+      position: absolute
+      left: 352px
+      top: 215px
+
+
+    .login-help
+      width: 300px
+      display: flex
+      justify-content: space-between
+      flex-wrap: wrap
+      padding-right: 0
+
+
+      .button-login
+        width: 100%
+
+        margin: 0
+        margin-top: 14px
+        height: 43px
+
+      .restore
+        color: inherit
+        text-decoration: underline
+
+      .login-checkbox
+        padding-left: 32px
+        display: block
+        cursor: pointer
+        user-select: none
+
+        .checkbox-indicator:before
+          position: absolute
+          content: ''
+          left: 80px
+          width: 20px
+          height: 20px
+          border: 2px solid #000000
+
+
+
+//scripts
+.modal-show
+  display: block
+  animation-name: bounce
+  animation-duration: 0.6s
+.modal-error
+  animation-name: shake
+  animation-duration: 0.6s
+.modal-map-show
+  display: block
+  animation-name: bounce
+  animation-duration: 0.6s
+
+//animation
+@keyframes bounce
+  0%
+    transform: translateY(-2000px)
+  70%
+    transform: transLateY(30px)
+  90%
+    transform: transLateY(-10px)
+  100%
+    transform: transLateY(0)
+@keyframes shake
+  0%,100%
+    transform: translateX(0)
+  10%, 30%, 50%, 70%, 90%
+    transform: translateX(-10px)
+  20%, 40% ,60%,80%
+    transform: translateX(10px)
+

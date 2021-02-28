@@ -1,0 +1,423 @@
+$--basic-black: #000000
+$--basic-dark: #242424
+$--basic-grey: #1a1a1a
+$--ultra-grey: #aba9a7
+$--normal-white: #f9f6f3
+$--extra-white: #ffffff
+$--botton-grey: #e5e5e5
+
+$--special: #663d15
+.visually-hidden
+  position: absolute
+  clip: rect(0 0 0 0)
+  width: 1px
+  height: 1px
+  margin: -1px
+html
+  height: 100%
+body
+  min-width: 960px
+  /*минимальная ширина. Внимание, в макете барбершопа размер боди, помнишь, там где новости и фотогалерея, там от начала элемента до конца-940. +10 на всякий случай с двух сторон*/
+  margin: 0
+  /*Устанавливает величину отступа от каждого края элемента. Отступом является пространство от границы текущего элемента до внутренней границы его родительского элемента
+     Свойство margin задаёт отступ между границами блока и его родителем и соседями.*/
+  padding: 0
+  /*станавливает значение полей вокруг содержимого элемента. Полем называется расстояние от внутреннего края рамки элемента до воображаемого прямоугольника, ограничивающего его содержимое
+     Свойство padding задаёт отступ от границы блока до содержимого, ещё эти отступы называют «полями». */
+  font-family: "PT Sans Narrow", Arial, sans-serif
+  /*указываем шрифт для всего глубже <body>, если у какого то элемента
+       в макете другой шрифт, то там уже лично прописывать элементу шрифт (по правилу каскада)*/
+  font-size: 14px
+  /*стили по умолчанию, размер шрифта-14 пикселей (можно глянуть в макете*/
+  line-height: 24px
+  /*межстрочный интервал, тоже смотрится в макете*/
+  font-weight: 700
+  /*шрифт по умолчанию, в данный момент полужирный 700, смотри макет*/
+  color: $--extra-white
+  /*шрифт по умолчанию, я поставил белый, екстра вайт смотри root*/
+  text-transform: uppercase
+  /*апперкейс означает, что все нахуярено капсом*/
+  background-color: $--basic-black
+  /*ну тут понятно, бекграунд черный, что бы видно было текст?всегда указываем фон, что бы если какая то картинка не загрузилась, было видно текст*/
+  background-image: url("images/images_catalog/jpg/white background.jpg")
+  /*добавляем картинку на бекграунд*/
+  background-position: top center
+  /*центрируем ее*/
+  background-repeat: repeat
+  /*тоже центрируем, видимо что бы она не повторялась*/
+  height: 100%
+  display: flex
+  flex-direction: column
+
+
+
+
+  & a
+    text-decoration: none
+
+  & img
+    max-width: 100%
+    /*не даем картинкам быть больше, чем их контейнер*/
+    height: auto
+
+  .page
+    height: 100%
+
+  .page-body
+    min-height: 100%
+    display: grid
+    grid-template-rows: min-content 1fr min-content
+    align-content: start
+//шапка
+.main-header
+  .main-navigation-wrapper
+    width: 100%
+    /* ширину добавили после флексов, что бы черная хуйня на всю длину растянулась*/
+    background-color: $--basic-black
+    /*вот как раз без логотипа весю шапку залили черным*/
+
+
+    .main-navigation
+      font-size: 16px
+      /*у нас в шапке другой размер шрифтов*/
+      line-height: 20px
+      /*у нас в шапке другой размер шрифтов*/
+      color: $--extra-white
+      /*я не могу понять, за что эта срань отвечает, но меняет цвет li шки, точки возле пунктов*/
+      background-color: transparent
+      /*фон у нас прозрачный, потом будем пытаться его сделать черным, хз почему не ща. Я понял. в мейн навигейшене есть логотип, нам нельзя под ним фон черный делать*/
+      display: flex
+      align-items: center
+      justify-content: center
+
+
+  .container
+    width: 940px
+    margin: 0 auto
+    padding: 0 10px
+
+
+  .site-navigation
+    display: flex
+    width: 620px
+    margin: 0
+    padding: 0
+    min-height: 72px
+    list-style: none
+    /* делаем тоже самое со всеми элементами хедера */
+    justify-content: space-between
+    align-items: center
+
+    a
+      color: $--extra-white
+      display: block
+      padding: 26px 22px
+
+
+    a:hover,
+    a:focus
+      background-color: $--basic-dark
+  //белое подчеркивание
+  .shop-underline
+
+          position: relative
+          &::after
+            content: ''
+            position: absolute
+            top: 68px
+            left: 22px
+            width: 57px
+            height: 4px
+            background-color: white
+          &:hover::after,
+          &:focus::after,
+          &:active::after
+            opacity: 0
+  /*logo*/
+
+
+
+  .main-header-logo
+    padding: 0
+    margin: 0
+    margin-right: 40px
+    width: 111px
+    height: 24px
+
+
+  a
+    color: $--extra-white
+
+  .user-navigation
+    margin-left: 182px
+
+    .login-link
+      padding-left: 50px
+      position: relative
+
+      &:before
+        content: ''
+        position: absolute
+        top: 27px
+        left: 24px
+        width: 16px
+        height: 18px
+        background-image: url("images/images_catalog/jpg/log in white.svg")
+        background-repeat: no-repeat
+        background-position: 0 0
+        opacity: 0.3
+
+      &:hover::before,
+      &:focus::before,
+      &:active::before
+        opacity: 1
+
+    max-width: 140px
+
+    a
+      color: $--extra-white
+      display: block
+      padding: 25px 20px
+
+    & a:hover,
+    & a:focus
+      background-color: $--basic-dark
+//основное
+.product-content
+  width: 940px
+  margin: 0 auto
+  padding: 0 10px
+  color: $--basic-black
+  background-color: $--extra-white
+  background-image: url("images/images_catalog/jpg/white background.jpg")
+  background-position: center, 0 0
+  background-repeat: repeat
+  flex: 1 0 auto
+
+  .care-products
+    width: 100%
+    margin: 0
+    margin-top: 61px
+
+    h2
+      margin: 0
+      font-size: 30px
+      line-height: 42px
+
+    .care-products-list
+      list-style: none
+      padding: 0
+      margin: 0
+      margin-top: 15px
+      width: 589px
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      flex-wrap: nowrap
+
+    .product-info-li
+      color: #ABA9A7
+
+    .button-care-product-list
+      font: inherit
+      color: var(--basic-black)
+      position: relative
+      &::after
+        content: ""
+        position: absolute
+        right: -23px
+        bottom: 6px
+        width: 7px
+        height: 7px
+        background-color: black
+        transform: rotate(45deg)
+
+.main-content
+
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  .pthoto-list
+    list-style: none
+    padding-left: 0
+    width: 460px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    & img
+      padding: 0
+  .text-menu
+    margin-left: 89px
+    max-width: 390px
+    width: 100%
+
+    .product-info
+      width: 390px
+
+      .vendor-code
+        width: 390px
+        display: flex
+        justify-content: space-between
+        .grey-code
+          color: #ABA9A7
+
+      .main-text-menu
+        width: 390px
+        margin-top: 29px
+        .main-text
+          width: 390px
+          height: 178px
+
+      .buttons-shop-list
+        display: flex
+        .grey-background-price
+          background-color: $--botton-grey
+          margin: 0
+          padding: 0
+          width: 109px
+          height: 43px
+          display: flex
+          justify-content: center
+          align-items: center
+        .button-shop
+          width: 78px
+          height: 43px
+    .in-set
+      margin-top: 62px
+      & h3
+        font-size: 24px
+      .set-list
+        list-style: none
+        margin: 0
+        padding-left: 20px
+        .set-list-rotate
+          font: inherit
+          color: var(--basic-black)
+          position: relative
+          &::before
+            content: ""
+            position: absolute
+            left: -20px
+            top: 9px
+            width: 7px
+            height: 7px
+            background-color: black
+            transform: rotate(45deg)
+
+
+//bottons
+.button
+  text-align: center
+  font: inherit
+  color: $--extra-white
+  text-transform: uppercase
+  /*все пишется прописными буквами*/
+  vertical-align: middle
+  /*Выравнивает элемент по вертикали относительно своего родителя, окружающего текста или ячейки таблицы.*/
+  background-color: $--basic-black
+  border: none
+
+  &:active,
+  &:hover,
+  &:focus
+    background-color: $--special
+
+  .disabled
+    cursor: default
+    opacity: 0.5
+    /*полупрозрачная*/
+    background-color: $--basic-black
+
+
+//Footer
+.main-footer
+  padding: 59px
+  margin-top: 65px
+  color: $--extra-white
+  background-color: var(--basic-black)
+  background-image: url("images/images_catalog/jpg/black background.jpg")
+  background-position: 0 0
+  background-repeat: repeat
+  height: auto
+  flex-shrink: 0
+
+
+  .container
+    width: 940px
+    margin: 0 auto
+    padding: 0 10px
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+
+    .footer-contacts
+      margin: 0
+      width: 373px
+
+      p
+        margin: 0
+
+      a
+        color: $--extra-white
+        text-decoration: underline
+
+      &a:hover,
+      &a:focus
+        text-decoration: none
+
+    .footer-social
+
+      display: flex
+      justify-content: center
+      flex-wrap: wrap
+      width: 141px
+      justify-self: center
+      text-align: center
+
+      ul
+        margin: 0 auto
+        padding: 0
+        list-style: none
+
+      h2
+        font-size: 14px
+
+      .social-button
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-right: 6px
+        width: 43px
+        height: 43px
+        color: inherit
+        background-color: $--basic-black
+
+        &:hover,
+        &:focus
+          background-color: $--extra-white
+
+        &:hover path,
+        &:focus path
+          fill: $--basic-black
+
+      .social-button-list
+        display: flex
+
+
+    .footer-copyright
+      justify-self: end
+      display: block
+      width: 140px
+
+      & .button:hover,
+      & .button:focus
+        color: $--basic-black
+        background-color: $--extra-white
+
+      & p
+        margin-bottom: 12px
+        margin-left: 51px
+
+      .button-copyright
+        display: inline-block
+        width: 100%
+        margin: 0
+        padding: 10px 30px
